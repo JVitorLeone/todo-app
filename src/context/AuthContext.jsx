@@ -5,7 +5,7 @@ import { auth } from '../firebase'
 const AuthContext = createContext()
 
 export const AuthContextProvider = ({children}) => {
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState({})
 
     const googleSignIn = () => {
         const provider = new GoogleAuthProvider()
@@ -19,7 +19,6 @@ export const AuthContextProvider = ({children}) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currUser) => {
             setUser(currUser)
-            console.log('User', currUser)
         })
 
         return () => {
