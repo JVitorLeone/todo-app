@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { UserAuth } from '../context/AuthContext'
 import { addTodoItem } from '../api/service'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 const TodoList = () => {
     const { user } = UserAuth()
@@ -26,7 +28,7 @@ const TodoList = () => {
                 className='btn btn-primary'
                 onClick={ handleNewItem } 
             >
-                +
+                <FontAwesomeIcon icon={ faPlus } />
             </button>
         </div>
     )

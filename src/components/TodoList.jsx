@@ -40,12 +40,16 @@ const TodoList = () => {
                     )
                 })}
             </div>
-            <hr/>
-            <button 
-                className="btn btn-primary col-12"
-                onClick={() => setIsShownFiledItems(!isShownFiledItems)}>
-                Itens arquivados 
-            </button>
+            { filedItems.length > 0 && (
+                <div>
+                    <hr/>
+                    <button 
+                        className="btn btn-primary col-12"
+                        onClick={() => setIsShownFiledItems(!isShownFiledItems)}>
+                        Itens arquivados 
+                    </button>
+                </div>
+            )}
             { isShownFiledItems && (
                 <div className="pt-2">
                     { filedItems.map((item) => {

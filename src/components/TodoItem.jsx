@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash, faBoxArchive } from '@fortawesome/free-solid-svg-icons'
 
 const TodoItem = ({ value, onUpdate, onDelete }) => {
     const [isDone, setIsDone] = useState(value.done)
@@ -38,17 +40,17 @@ const TodoItem = ({ value, onUpdate, onDelete }) => {
             <div className="col-4 d-flex justify-content-end">
                 <button 
                     type='button'
-                    className='btn btn-warning btn-sm rounded-0' 
+                    className='btn btn-primary btn-sm rounded-0' 
                     title={titleFileBtn}
                     onClick={ () => setIsFiled(!isFiled) }>
-                    <img src="/src/assets/box-archive-solid.svg" height='15px' width='15px' title={titleFileBtn}/>
+                    <FontAwesomeIcon icon={faBoxArchive} />
                 </button>
                 <button 
                     type="button"
                     className='btn btn-danger btn-sm rounded-0' 
                     title='Excluir'
                     onClick={ () => onDelete(value.id) }>
-                    <img src="/src/assets/trash-solid.svg" height='15px' width='15px' title='Excluir'/>
+                    <FontAwesomeIcon icon={faTrash}/>
                 </button>
             </div>
         </div>

@@ -1,7 +1,8 @@
-import { useState } from 'react'
 import { UserAuth } from '../context/AuthContext'
 import TodoList from '../components/TodoList'
 import NewItem from '../components/NewItem'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSignOut } from '@fortawesome/free-solid-svg-icons'
 
 function Home() {
   const { user, logOut } = UserAuth()
@@ -17,10 +18,11 @@ function Home() {
           <h6>Bem vindo, {user.displayName}!</h6>
         </li>
         <button 
-          className="btn btn-primary my-2 my-sm-0 ms-2"
+          className="btn btn-outline-primary my-2 my-sm-0 ms-2"
           onClick={handleLogOut}
+          title='Sair'
         >
-          Sair
+          <FontAwesomeIcon icon={ faSignOut } />
         </button>
       </ul>
       <hr/>
