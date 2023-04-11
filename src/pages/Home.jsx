@@ -11,11 +11,20 @@ function Home() {
   }
 
   return (
-    <div>
-      <h2>Bem vindo, {user.displayName}!</h2>
-      <button onClick={handleLogOut}>Sair</button>
+    <div className='container border rounded shadow  d-flex flex-column align-items-center p-3'>
+      <ul className="nav w-100 justify-content-between">
+        <li className="nav-item pt-2">
+          <h6>Bem vindo, {user.displayName}!</h6>
+        </li>
+        <button 
+          className="btn btn-primary my-2 my-sm-0 ms-2"
+          onClick={handleLogOut}
+        >
+          Sair
+        </button>
+      </ul>
       <hr/>
-      <div>
+      <div className='w-100'>
         <NewItem />
         <TodoList />
       </div>
