@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { onTodoItemSnapshot, updateTodoItem } from '../api/service'
+import { onTodoItemSnapshot, updateTodoItem, deleteTodoItem } from '../api/service'
 import TodoItem from './TodoItem'
 
 const TodoList = () => {
@@ -19,18 +19,23 @@ const TodoList = () => {
     }, [])
 
     const handleUpdate = async (todoItem) => {
-        updateTodoItem(todoItem.id, todoItem.done, todoItem.filed)
+        await updateTodoItem(todoItem.id, todoItem.done, todoItem.filed)
+    }
+    
+    const handleDelete = async (idTodoItem) => {
+        await deleteTodoItem(idTodoItem)
     }
 
     return (
         <div>
             <div>
-                { todoItems.map((item, index) => {
+                { todoItems.map((item) => {
                     return (
                         <TodoItem 
-                            key={ index }
+                            key={ item.id }
                             value={ item } 
                             onUpdate={ handleUpdate }
+                            onDelete={ handleDelete }
                         />
                     )
                 })}
@@ -43,12 +48,13 @@ const TodoList = () => {
             </button>
             { isShownFiledItems && (
                 <div className="pt-2">
-                    { filedItems.map((item, index) => {
+                    { filedItems.map((item) => {
                         return (
                             <TodoItem 
-                                key={ index }
+                                key={ item.id }
                                 value={ item } 
                                 onUpdate={ handleUpdate }
+                                onDelete={ handleDelete }
                             />
                         )
                     })}

@@ -4,6 +4,7 @@ import {
     onSnapshot, 
     updateDoc, 
     addDoc, 
+    deleteDoc,
     doc, 
     serverTimestamp 
 } from 'firebase/firestore'
@@ -42,4 +43,10 @@ export const addTodoItem = async (itemDescription, userUid) => {
     }
 
     await addDoc(todoItemCollectionRef, todoItem)
+}
+
+export const deleteTodoItem = async (itemId) => {
+    const todoItemDoc = doc(db, 'todo-item', itemId)
+    
+    await deleteDoc(todoItemDoc);
 }

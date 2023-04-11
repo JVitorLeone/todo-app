@@ -13,7 +13,7 @@ function Home() {
   return (
     <div className='container border rounded shadow  d-flex flex-column align-items-center p-3'>
       <ul className="nav w-100 justify-content-between">
-        <li className="nav-item pt-2">
+        <li className="nav-item d-flex align-items-center pt-2">
           <h6>Bem vindo, {user.displayName}!</h6>
         </li>
         <button 
